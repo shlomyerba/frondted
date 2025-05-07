@@ -1,0 +1,71 @@
+// Variables
+$primary-color: #4caf50;
+$danger-color: #ff4444;
+$background-light: #f5f5f5;
+$border-color: #ddd;
+$placeholder-color: #666;
+$border-radius: 4px;
+$spacing-sm: 5px;
+$spacing-md: 8px;
+$spacing-lg: 10px;
+$spacing-xl: 20px;
+
+// Mixins
+@mixin button-base {
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  padding: $spacing-sm $spacing-lg;
+  color: white;
+}
+
+.app-container {
+  padding: $spacing-xl;
+
+  .items-list {
+    list-style: none;
+    padding: 0;
+
+    .item-row {
+      margin-bottom: $spacing-lg;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: $spacing-sm $spacing-lg;
+      background-color: $background-light;
+      border-radius: $border-radius;
+
+      .delete-button {
+        @include button-base;
+        margin-left: $spacing-lg;
+        background-color: $danger-color;
+      }
+    }
+  }
+
+  .add-form {
+    display: flex;
+    gap: $spacing-lg;
+
+    .add-input {
+      padding: $spacing-md $spacing-md * 1.5;
+      border-radius: $border-radius;
+      border: 1px solid $border-color;
+      flex: 1;
+      font-size: 14px;
+
+      &::placeholder {
+        color: $placeholder-color;
+        opacity: 1; // Force full opacity in Firefox
+      }
+    }
+
+    .add-button {
+      @include button-base;
+      background-color: $primary-color;
+      padding: $spacing-md $spacing-xl;
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+}
